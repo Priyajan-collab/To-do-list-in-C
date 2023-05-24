@@ -1,9 +1,13 @@
 #include <stdio.h>
 #include <string.h>
-void signup();
+#define buffer1 30
+#define buffer2 20
+FILE *logInInfo;
+void saveInfo(char auth1[buffer1], char auth2[buffer2]);
+void signUp();
 struct UserData {
-  char username[30];
-  char password[20];
+  char username[buffer1];
+  char password[buffer2];
 };
 
 void main() {
@@ -20,8 +24,8 @@ void main() {
 }
 
 void signUp() {
-  char name[30];
-  char password[30];
+  char name[buffer1];
+  char password[buffer1];
   struct UserData User1;
   printf("Welcome, Thank you for choosing to join our community\n");
   printf("Please Enter appropriate User Name\n");
@@ -32,4 +36,23 @@ void signUp() {
   strcpy(User1.password, password);
   printf("%s\n", User1.username);
   printf("%s\n", User1.password);
+  saveInfo(User1.username, User1.password);
+}
+
+void saveInfo(char auth1[buffer1], char auth2[buffer2]) {
+  // Yo chai file matra create gareko if file xaina vaye
+  logInInfo = fopen("Logininfo.txt", "r");
+  if (logInInfo == NULL) {
+    logInInfo = fopen("logininfo.txt", "w");
+    fclose(logInInfo);
+  }
+  fclose(logInInfo);
+
+  // yeta chai aba save garne ho user ko info
+  logInInfo = fopen("Logininfo.txt", "w");
+  fputs("\n", logInInfo);
+  fputs(auth1, logInInfo);
+  fputs("\n", logInInfo);
+  fputs(auth2, logInInfo);
+  fclose(logInInfo);
 }
