@@ -1,0 +1,87 @@
+
+
+#background-window{
+    background-color: #F9F5FF;
+}
+
+#all-buttons{
+  
+    background-color: #fff;
+    border-radius: 24px;
+    border-style: none;
+    box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
+  
+    color: #3c4043;
+   
+  
+    font-family: "Google Sans",Roboto,Arial,sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+   
+    
+    letter-spacing: .25px;
+    line-height: normal;
+  
+  
+    padding: 2px 24px;
+    
+  
+    text-transform: none;
+  }
+#welcome-page-box{
+  padding: 20px 20px 20px 20px;
+  
+  border:2px solid black;
+  margin: 100px 200px 100px 200px;
+  border-radius: 10px;
+  box-shadow: 3px 3px 1px rgb(230, 226, 226);
+
+
+  background-color: rgba(210, 210, 210, 1);
+    
+}
+#welcome-page-box:hover{
+    animation: ease-in-out;
+    border-radius: 10px;
+    
+  box-shadow: 2px 2px 1px rgba(0,0,0,0.5),
+  inset 2px 2px 1px rgba(0,0,0,0.5);
+
+}
+#welcome-page-box label text{
+    color:#28262C;
+}
+#welcome-page-box label {
+    color:#28262C ;
+    font-size: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+#text-label{
+    background-color: aquamarine;
+}
+
+#todo-box{
+    min-width: 800px;
+    margin: 0px 0px;
+    padding: 20px;
+    overflow-y:scroll;
+}
+#todo-box label {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+#task-delbutton{
+    padding: 20px;
+
+}
+#task-delbutton label{
+    border-radius: 20px;
+}
+
+
+
+  
+  

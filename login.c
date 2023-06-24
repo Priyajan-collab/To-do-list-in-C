@@ -25,9 +25,10 @@ static void signUpCheck(GtkWidget *button, gpointer data);
 static void signUpPage(GtkWidget *button, gpointer data);
 static void logInPage(GtkWidget *button, gpointer data);
 void removeTask(GtkWidget *button, gpointer *data);
+void doneTask(GtkWidget *checkbox, gpointer *data);
 
-// yeta chai sab function haru for GUI so that i don't have to create everytime
-// from scratch each time
+// yeta chai sab function haru for GUI so that i don't have to create
+// everytime from scratch each time
 static void clearWindow(GtkWidget *window) {
   gtk_window_set_child(window, NULL);
 }
@@ -40,6 +41,8 @@ static void createButton(GtkWidget *parent, const char *label,
                          GCallback callback, gpointer data) {
   GtkWidget *button = gtk_button_new_with_label(label);
   g_signal_connect(button, "clicked", callback, data);
+  gtk_widget_set_name(button, "all-buttons");
+  gtk_widget_set_size_request(button, 100, -1);
   gtk_box_append(GTK_BOX(parent), button);
 }
 static void createDeleteButton(GtkWidget *parent, const char *label,
@@ -75,12 +78,27 @@ void addSpacetofront(char *str) {
   }
   str[0] = ' ';
 }
+static void createLabelDoneTask(GtkWidget *parent, const char *text) {
+  GtkWidget *donetasklabel = gtk_label_new(text);
+  GtkWidget *donetaskbox = gtk_box_new(GTK_ORIENTATION_VERTICAL, 5);
+  gtk_box_append(donetaskbox, donetasklabel);
+  gtk_box_append(box, donetaskbox);
+  // gtk_widget_set_name(label1, "text-label");
+}
 
 static void createLabelTask(GtkWidget *parent, const char *text) {
   GtkWidget *label1 = gtk_label_new(text);
-  gtk_box_append(GTK_BOX(parent), label1);
-  createDeleteButton(box, "X", G_CALLBACK(removeTask), text);
+  GtkWidget *box2 = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 5);
+  GtkWidget *checkbox = gtk_check_button_new_with_label(" ");
+  g_signal_connect(checkbox, "toggled", G_CALLBACK(doneTask),
+                   (gpointer)g_strdup(text));
+  gtk_widget_set_name(checkbox, "check-box");
+  gtk_widget_set_name(box2, "task-delbutton");
+  gtk_box_append(GTK_BOX(box2), label1);
+  gtk_box_append(box2, checkbox);
+  createDeleteButton(box2, "X", G_CALLBACK(removeTask), text);
 
+  gtk_box_append(box, box2);
   gtk_widget_set_name(label1, "text-label");
 }
 
@@ -135,13 +153,24 @@ static void addTask() {
   fclose(userLogged);
   showTask();
 }
+void doneTask(GtkWidget *label1, gpointer *data) {
+  const char *donetask = (const char *)data;
+  GtkWidget *donebox;
+  GtkWidget *donelabel;
+  gtk_widget_set_name(label1, "done-task");
+  // remove task sanga similar function banau
+
+  createLabelDoneTask(box, donetask);
+}
 
 void removeTask(GtkWidget *button, gpointer *data) {
   const char *text = (const char *)data;
   FILE *temp = fopen("temp.txt", "w");
   char empty[20];
   char tasktodel[1024];
-  char filename_c[30];
+  char username[30];
+  strcpy(username, filename);
+  // printf("%s", filename);
 
   int lineNumber = 1;
 
@@ -168,8 +197,6 @@ void removeTask(GtkWidget *button, gpointer *data) {
   fclose(userLogged);
   fclose(temp);
 
-  printf("%s", filename);
-
   userLogged = fopen(filename, "w");
   temp = fopen("temp.txt", "r+");
   if (userLogged == NULL) {
@@ -178,7 +205,7 @@ void removeTask(GtkWidget *button, gpointer *data) {
   char tasktoadd[1024];
   while (fgets(tasktoadd, 1024, temp)) {
     // tasktodel[strcspn(tasktoadd, "\n")] = '\0';
-    printf("%s", tasktoadd);
+    // printf("%s", tasktoadd);
 
     // count = strcmp(tasktoadd, text);
     // printf("%s", tasktoadd);
@@ -190,6 +217,12 @@ void removeTask(GtkWidget *button, gpointer *data) {
   fclose(temp);
   fclose(userLogged);
   remove("temp.txt");
+
+  // printf("\nfilename :%s\n", filename);
+  username[strcspn(username, ".")] = '\0';
+  // printf("k:%s", username);
+  latestLine = 0;
+  todopage(username);
 }
 
 // printf("chalyo");
@@ -369,12 +402,14 @@ static void welcome(GtkApplication *app, gpointer data) {
   gtk_window_set_title(GTK_WINDOW(window), "WELCOME");
   loadCSS();
   box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 5);
+  gtk_widget_set_halign(box, GTK_ALIGN_CENTER);
+  gtk_widget_set_valign(box, GTK_ALIGN_CENTER);
 
   createLabel(box, "Welcome to Optimizelyf");
   createSpacer(box, 100);
 
-  createButton(box, "logInPage", G_CALLBACK(logInPage), app);
-  createButton(box, "Signuppage", G_CALLBACK(signUpPage), app);
+  createButton(box, "LOGIN", G_CALLBACK(logInPage), app);
+  createButton(box, "Create an account", G_CALLBACK(signUpPage), app);
   // widget haru lai name diyeko so that i can design
   gtk_widget_set_name(box, "welcome-page-box");
   gtk_widget_set_name(window, "background-window");
