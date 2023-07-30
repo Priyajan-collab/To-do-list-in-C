@@ -90,8 +90,8 @@ static void createLabelTask(GtkWidget *parent, const char *text) {
   GtkWidget *label1 = gtk_label_new(text);
   GtkWidget *box2 = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 5);
   GtkWidget *checkbox = gtk_check_button_new_with_label(" ");
-  g_signal_connect(checkbox, "toggled", G_CALLBACK(doneTask),
-                   (gpointer)g_strdup(text));
+  // g_signal_connect(checkbox, "toggled", G_CALLBACK(doneTask),
+  //                  (gpointer)g_strdup(text));
   gtk_widget_set_name(checkbox, "check-box");
   gtk_widget_set_name(box2, "task-delbutton");
   gtk_box_append(GTK_BOX(box2), label1);
