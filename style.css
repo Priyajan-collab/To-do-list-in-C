@@ -1,87 +1,211 @@
 
-
-#background-window{
-    background-color: #F9F5FF;
-}
-
-#all-buttons{
+#background-window {
+    /* background-color: rgb(236, 236, 236);
+     */
+     background-color: #fef6ec;
+  }
   
-    background-color: #fff;
-    border-radius: 24px;
+  #btn {
+    background: #3ba1da;
+    color: white;
+    border-radius: 8px;
     border-style: none;
-    box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
   
-    color: #3c4043;
-   
+    /* color: #3c4043; */
   
-    font-family: "Google Sans",Roboto,Arial,sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-   
-    
-    letter-spacing: .25px;
+    font-family: "Google Sans", Roboto, Arial, sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+  
+    letter-spacing: 0.25px;
     line-height: normal;
   
-  
-    padding: 2px 24px;
-    
+    /* padding: 2px 24px; */
+    margin: 0 0 10px 0;
   
     text-transform: none;
   }
-#welcome-page-box{
-  padding: 20px 20px 20px 20px;
+  #btn:hover {
+    background: #2a9aca;
+    box-shadow: rgba(0, 0, 0, 0.2) 0 3px 5px -1px,
+      rgba(0, 0, 0, 0.14) 0 6px 10px 0, rgba(0, 0, 0, 0.12) 0 1px 18px 0;
+  }
+  #btncontainer {
+    padding: 0 75px;
+    margin-top: 8px;
+  }
+  #welcome-page-box {
+    /* border: 2px solid black; */
+    /* margin: 100px 200px 100px 200px; */
+    border-radius: 10px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   
-  border:2px solid black;
-  margin: 100px 200px 100px 200px;
-  border-radius: 10px;
-  box-shadow: 3px 3px 1px rgb(230, 226, 226);
-
-
-  background-color: rgba(210, 210, 210, 1);
-    
-}
-#welcome-page-box:hover{
+    background-color: white;
+  }
+  #welcome-page-box:hover {
     animation: ease-in-out;
     border-radius: 10px;
-    
-  box-shadow: 2px 2px 1px rgba(0,0,0,0.5),
-  inset 2px 2px 1px rgba(0,0,0,0.5);
-
-}
-#welcome-page-box label text{
-    color:#28262C;
-}
-#welcome-page-box label {
-    color:#28262C ;
-    font-size: 2rem;
+  
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+  #header {
+    background-color: #3ba1da;
+  }
+  #title {
+    color: white;
+    font-size: 1.75rem;
     font-family: Arial, Helvetica, sans-serif;
-}
-
-
-
-#text-label{
+    padding: 10px 15px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  #todo-title {
+    color: black;
+    font-size: 1.5rem;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 10px 15px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-weight: 500;
+  }
+  #body {
+    padding: 15px 5px;
+    margin: 0 10px 10px 10px;
+    border-left: 1px solid #d6d6d5;
+    border-right: 1px solid #d6d6d5;
+    border-bottom: 1px solid #d6d6d5;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  
+  #body-text {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #262627;
+    font-size: 1.5rem;
+    /* font-weight: 600; */
+  }
+  #text-label {
     background-color: aquamarine;
-}
-
-#todo-box{
+  }
+  #entry {
+    min-width: 10px;
+  }
+  #todo-box {
     min-width: 800px;
     margin: 0px 0px;
     padding: 20px;
-    overflow-y:scroll;
-}
-#todo-box label {
+  }
+  /* #todo-box label {
     padding: 10px;
     border-bottom: 1px solid #ccc;
-}
-#task-delbutton{
+  } */
+  /* #task-delbutton {
     padding: 20px;
-
-}
-#task-delbutton label{
+  }
+  #task-delbutton label {
     border-radius: 20px;
-}
-
-
-
+  } */
+  #container {
+    margin-top: 15px;
+  }
+  #add-box {
+    border: 1px solid red;
+    min-width: 50px;
+  }
+  #todo-box {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    background: white;
+    border-radius: 8px;
+  }
+  
+  #login-container {
+    min-width: 280px;
+    border-radius: 8px;
+    background: white;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  }
+  #login-container:hover {
+    animation: ease-in-out;
+    border-radius: 10px;
+  
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+  #textboxContainer {
+    padding: 5px 15px;
+  }
+  #text-done {
+    background: green;
+  }
+  #text-undone {
+    background: red;
+  }
+  /* #add-todo-list {
+    min-width: 100px;
+  } */
+  #add-todo-list:hover {
+    transition: all ease-in-out 0.4s;
+    min-width: 300px;
+  }
+  #add-todo-list:active {
+    min-width: 300px;
+  }
+  
+  #todo-box {
+    margin: 1.5rem;
+  }
+  #vbox {
+    min-width: 100px;
+  }
+  #task-container-undone {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 25px;
+    margin: 0.5rem 1.2rem;
+    padding: 3px 25px;
+    
+  }
+  #task-container-done {
+    background: #d2d4d4;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 25px;
+    margin: 0.75rem 1.2rem;
+    padding: 3px 25px;
+  }
+  #check-box-done {
+    font-size: 1rem;
+    padding: 7px 15px;
+    min-height: 10px;
+    background: #3ba1da;
+    min-width: 30px;
+    border: 1px solid #38a150;
+  }
+  #check-box-done :hover {
+    background: #34a3e4;
+  }
+  #check-box-undone {
+    padding: 7px 15px;
+    font-size: 1rem;
+    min-height: 10px;
+    min-width: 30px;
+  }
+  #delbutton {
+    background: #F8f7f2;
+    color: black;
+  
+    border: 1px solid;
+    padding: 0 8px;
+    border-radius: 50%;
+  }
+  #delbutton:hover{
+      color:red;
+  }
+  #text-box-container {
+    margin-left: 2rem;
+  }
+  #add-todo-list {
+    min-width: 150px;
+  }
+  #add-btn {
+    margin-right: 2rem;
+  }
   
   
